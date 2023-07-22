@@ -15,6 +15,8 @@ const salt = bcrypt.genSaltSync(10);
 const secret = "asdfghjkl";
 const uploadMiddleware = multer({ dest: "uploads/" });
 
+const PORT = process.env.PORT || 4000;
+
 app.use(cors({ credentials: true, origin: "http://localhost:3000" })); //if we are using credentials, we need to specify some information in cors
 app.use(express.json());
 app.use(cookieParser());
@@ -141,4 +143,4 @@ app.put("/post", uploadMiddleware.single("file"), async (req, res) => {
 	});
 });
 
-app.listen(4000);
+app.listen(PORT);
