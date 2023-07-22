@@ -25,7 +25,7 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 require('dotenv').config();
 
 mongoose.connect(
-	"mongodb+srv://" +process.env.USERNAME + ":" + process.env.PASSWORD + "@cluster0.68rvw1v.mongodb.net/?retryWrites=true&w=majority"
+	"mongodb+srv://" +process.env.USERNAME + ":" + process.env.PASSWORD + process.env.LINK
 );
 
 app.post("/register", async (req, res) => {
