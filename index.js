@@ -17,7 +17,7 @@ const uploadMiddleware = multer({ dest: "uploads/" });
 
 const PORT = process.env.PORT || 4000;
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000" })); //if we are using credentials, we need to specify some information in cors
+app.use(cors({ credentials: true, origin: "https://dynamic-profiterole-f444e1.netlify.app/" })); //if we are using credentials, we need to specify some information in cors
 app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
