@@ -17,12 +17,25 @@ const uploadMiddleware = multer({ dest: "uploads/" });
 
 const PORT = process.env.PORT || 4000;
 
+const whitelist = ['http://localhost:3000'];
+const corsOptions = {
+  credentials: true, // This is important.
+  origin: (origin, callback) => {
+    if(whitelist.includes(origin))
+      return callback(null, true)
+
+      callback(new Error('Not allowed by CORS'));
+  }
+}
+
+app.use(cors(corsOptions));
+
 // app.use(cors({ credentials: true, origin: "http://localhost:3000/" })); //if we are using credentials, we need to specify some information in cors
-app.use(cors({
-  'allowedHeaders': ['Content-Type'],
-  'origin': '*',
-  'preflightContinue': true
-}));
+// app.use(cors({
+//   'allowedHeaders': ['Content-Type'],
+//   'origin': '*',
+//   'preflightContinue': true
+// }));
 // app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
