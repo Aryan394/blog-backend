@@ -17,7 +17,7 @@ const uploadMiddleware = multer({ dest: "uploads/" });
 
 const PORT = process.env.PORT || 4000;
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000/" })); //if we are using credentials, we need to specify some information in cors
+//app.use(cors({ credentials: true, origin: "http://localhost:3000/" })); //if we are using credentials, we need to specify some information in cors
 app.use(cors({
   'allowedHeaders': ['Content-Type'],
   'origin': '*',
